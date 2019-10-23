@@ -1,0 +1,104 @@
+$year-size: 50px;
+
+.studies {    
+    position: relative;
+    background-color: $midnight-blue;
+    border-bottom: 5px solid $secondary-color;
+    color: #fff;
+
+    .timeline {
+        position: relative;
+        padding: 20px 0;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: rgb(255,255,255);
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 95%, rgba(9,10,15,1) 100%);
+            width: 5px;
+            @media (min-width: 768px) { 
+                left: 50%;
+                transform: translateX(-50%);
+            }    
+        }
+    }
+
+    .item {
+        color: #aaa;
+        transition: color ease 0.5s;
+        position: relative;
+        padding-bottom: 40px;
+        padding: 10px 20px 40px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 3px;
+            border: 8px solid $midnight-blue;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            z-index: 1000;
+            background-color: #fff;
+            transform: translateX(-50%);
+        }
+
+        &:hover {
+            color: #fff;
+
+            .desc .more {
+                width: max-content;
+            }
+        }
+
+        .desc {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+
+        .title {
+            color: #fff;
+            font-weight: bold;
+            border-bottom: 2px solid $secondary-color;
+            padding: 5px 10px;
+            .years {
+                display: inline-block;
+                color: $secondary-color;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            .school {
+                display: inline-block;
+            }
+        }
+
+        .city {
+            color: $secondary-color;
+            font-style: italic;
+        }
+
+        @media (min-width: 768px) { 
+            width: 50%;
+
+            &.right {
+                left: 50%;
+
+                &:before {
+                    left: 0;
+                }
+            }
+
+            &.left {
+                text-align: right;
+                &:before {
+                    left: auto;
+                    right: 0;
+                    transform: translateX(50%);
+                }
+            }
+        }
+    }
+}

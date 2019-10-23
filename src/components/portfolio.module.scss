@@ -1,0 +1,17 @@
+@import "../styles/placeholder";
+
+.portfolio {
+    border-bottom: 5px solid $secondary-color;
+
+    .img {
+        
+        img {
+            z-index: 100;
+        }
+    }
+
+    .project {
+        display: block;
+        padding: 15px;
+    }
+}

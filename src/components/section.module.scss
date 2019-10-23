@@ -1,0 +1,11 @@
+.section {
+    min-height: 100vh;
+    padding-top: 2 * $navbar-height;
+    padding-bottom: $navbar-height;
+    display: flex;
+
+    h2 {
+        margin-bottom: 60px;
+        font-size: 2.1rem;
+    }
+}

@@ -1,0 +1,87 @@
+// placeholder images
+
+$placeholder-img-bg: #ccc;
+$placeholder-img-border-color: darken($placeholder-img-bg, 10);
+$ratio-16-9: (9%/16%*100%);
+$ratio-4-3: (3%/4%*100%);
+$ratio-1-1: (100%);
+
+
+
+@mixin transform ($transforms) {
+     -moz-transform: $transforms;
+       -o-transform: $transforms;
+      -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+
+
+.placeholder-img {
+    height: 0;
+    position: relative;
+    overflow: hidden;
+    background: $placeholder-img-bg;
+    opacity: .7;
+
+    &:after,
+    &:before {
+        content: '';
+        width: 200%;
+        border-top: 1px solid $placeholder-img-border-color;
+        display: block;
+        position: absolute;
+        top: 0;
+    }
+
+    &:before {
+        left: 0;
+        transform-origin: top left;
+    }
+
+    &:after {
+        right: 0;
+        transform-origin: top right;
+    }
+}
+
+.placeholder-img--1-1 {
+  padding-bottom: $ratio-1-1;
+
+    &:before {
+        @include rotate(45);
+    }
+
+    &:after {
+        @include rotate(-45);
+    }
+}
+
+.placeholder-img--4-3 {
+    padding-bottom: $ratio-4-3;
+
+    &:before {
+        @include rotate(36.9);
+    }
+
+    &:after {
+        @include rotate(-36.9);
+    }
+}
+
+.placeholder-img--16-9 {
+    padding-bottom: $ratio-16-9;
+
+    &:before {
+        @include rotate(29.4);
+    }
+
+    &:after {
+        @include rotate(-29.4);
+    }
+}
