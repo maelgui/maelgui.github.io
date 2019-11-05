@@ -1,10 +1,8 @@
 ---
-title: Approximation de fonction
-year: 2018
-tags: ["Python", "iOS"]
-more: http://bagadmenru.bzh/
-featuredImage: ./bagadmenru.png
+title: OSCM
+year: 2014
+tags: ["Joomla"]
+more: https://web.archive.org/web/*/osc-montfort.fr
+featuredImage: ./oscm.png
 ---
-Etude de l'approximation de fonctions à travers des scripts Python.
-Projet réalisé dans le cadre des TIPEs en classe préparatoire.
-Réalisation d'une application iOS implémentant le solution pour la démonstration devant le jury.
+Site internet de l'office communautaire des sports de Montfort. L'association n’existe plus depuis 2016, ses activités sont reprises par la communauté de commune.

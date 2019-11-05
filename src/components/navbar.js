@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "gatsby"
 import './navbar.scss';
 
 class Navbar extends React.Component {
@@ -23,14 +22,14 @@ class Navbar extends React.Component {
         return (
             <nav class={`navbar navbar-expand-lg fixed-top ${this.state.hidden ? "hidden" : ""} dark`}>
                 <div class="container">
-                    <a class="navbar-brand" href="#">Mael Guillossou</a>
+                    <a class="navbar-brand" href="#home">Mael Guillossou</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
                             {this.links.map((object) => 
-                                <li class={`nav-item ${this.state.active == object.ref ? 'active' : ""}`}>
+                                <li class={`nav-item ${this.state.active === object.ref ? 'active' : ""}`}>
                                     <a class="nav-link" href={object.href ? object.href : "#" + object.ref}>{object.label} <span class="sr-only">(current)</span></a>
                                 </li>
                             )}

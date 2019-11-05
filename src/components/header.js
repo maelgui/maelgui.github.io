@@ -10,8 +10,8 @@ const Header = () => {
                     <h2>I'm a third year engineer student at <a href="https://ec-nantes.fr">Centrale Nantes</a></h2>
                 </div>
                 <div class={styles.social}>
-                    <a href="#" class="btn btn-icon"><span class="fab fa-github"></span></a>
-                    <a href="#" class="btn btn-icon"><span class="fab fa-linkedin-in"></span></a>
+                    <a href="https://github.com/maelgui" class="btn btn-icon"><span class="fab fa-github"></span></a>
+                    <a href="https://www.linkedin.com/in/mael-guillossou/" class="btn btn-icon"><span class="fab fa-linkedin-in"></span></a>
                 </div>
                 <div class={styles.action}>
                     <a href="#portfolio" class="btn">Check My Work</a>

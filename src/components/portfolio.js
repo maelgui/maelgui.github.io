@@ -1,8 +1,8 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import styles from './portfolio.module.scss';
 import Section from "../components/section";
-import Fade from 'react-reveal/Fade';
+import Slide from 'react-reveal/Slide';
 import Img from "gatsby-image"
 
 const Portfolio = () => {
@@ -22,7 +22,7 @@ const Portfolio = () => {
                             more
                             featuredImage {
                                 childImageSharp {
-                                  sizes(maxWidth: 630) {
+                                  sizes(maxWidth: 1000) {
                                     ...GatsbyImageSharpSizes
                                   }
                                 }
@@ -35,12 +35,23 @@ const Portfolio = () => {
     `);
 
     return (
-        <Section id="portfolio" class={styles.portfolio}>
+        <Section id="portfolio" class={styles.portfolio} head dark>
+            <div class={styles.parallax}>
+                <div class="container">
+                    <div>
+                        <div>
+                            <h2>Portfolio</h2>
+                        </div>
+                        <div>
+                            <p>Find here all my personnal projects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="container">
-                <h2>Portfolio</h2>
-                <div class="row">
+                <div>
                     {data.projects.edges.map((value, index) => {
-                        return <Project data={value.node} />
+                        return <Project data={value.node} left={index%2} />
                     })}
                 </div>
             </div>
@@ -50,24 +61,26 @@ const Portfolio = () => {
 
 const Project = (props) => {
     return (
-        <div class="col-md-3">
-            <Fade>
-                <div>
-                    <a href="#" class={styles.project} data-id="9">
-                        <div class={styles.img}>
-                            {props.data.frontmatter.featuredImage ? (
-                                <Img sizes={props.data.frontmatter.featuredImage.childImageSharp.sizes} />
-                            ) : ""}
+        <Slide up>
+            <div>
+                <div class={`row ${styles.project} ${props.left ? 'flex-row-reverse' : ''}`}>
+                    <div class="col-md-8" >
+                        <div class={styles.thumbContainer}>
+                            <div class={styles.thumbnail}>
+                                {props.data.frontmatter.featuredImage ? (
+                                    <Img sizes={props.data.frontmatter.featuredImage.childImageSharp.sizes}/>
+                                ) : ""}
+                            </div>
                         </div>
-                        <div class="desc">
-                            <span class="txt">
-                                <h5>{props.data.frontmatter.title}</h5>
-                            </span>
-                        </div>
-                    </a>
+                    </div>
+                    <div class={`col-md-4 ${styles.desc}`}>
+                        <h4>{props.data.frontmatter.title}</h4>
+                        <div dangerouslySetInnerHTML={{ __html: props.data.html }} class={styles.descHtml}></div>
+                        <Link to="/project" class={`btn ${styles.more}`} >Read More </Link>
+                    </div>                    
                 </div>
-            </Fade>
-        </div>
+            </div>
+        </Slide>
     );
 }
 

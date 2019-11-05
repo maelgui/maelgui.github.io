@@ -2,16 +2,80 @@
 
 .portfolio {
     border-bottom: 5px solid $secondary-color;
+    background-color: $midnight-blue;
+    display: block;
 
-    .img {
-        
-        img {
-            z-index: 100;
+    .parallax {
+        /* The image used */
+        background-image: url("../images/kaur-kristjan-CpPF4W5PB1c-unsplash.jpg");
+
+        /* Set a specific height */
+        height: 500px;
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        display: flex;
+
+        h2 {
+            font-size: 2.7rem;
+            padding: 15px 25px;
+            background-color: #fff;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            padding: 5px 15px;
+            background-color: #fff;
+            display: inline-block;
+        }
+
+        & > div {
+            margin: auto;
         }
     }
 
+    
+
     .project {
-        display: block;
-        padding: 15px;
+        margin-bottom: 120px;
+
+        .desc {
+            color: #fff;
+
+            h4, .descHtml {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .thumbContainer {
+            overflow: hidden;
+        }
+
+        .thumbnail {
+            filter: grayscale(100%);
+            transform: scale(1);
+            transition: ease 0.5s;
+        }
+
+        &:hover {
+            .thumbnail {
+                filter: grayscale(0%);
+                transform: scale(1.1);
+            }
+        }
+
+        .more {
+            text-transform: uppercase;
+            border-radius: 0;
+            font-family: Quicksand;
+            font-weight: normal;
+            padding: 0.5rem 1rem;
+        }
     }
 }

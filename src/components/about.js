@@ -28,8 +28,13 @@ function About() {
 
     return (
         <Section id="about" class={styles.about}>
+            <div class={styles.scrollAstronaut}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.6 107.6" id="star-svg">
+                    <path id="star-path" fill="#eee" stroke="black" stroke-width="2"  d=" ... " />
+                </svg>
+            </div>
             <div class="container row align-items-center">
-                <div class="col-md-3">
+                <div class="col-md-4 col-lg-3">
                     <div class={styles.face}>
                         <Zoom>
                             <div>
@@ -40,7 +45,7 @@ function About() {
                         </Zoom>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-8 col-lg-9">
                     <h2>{data.content.childMarkdownRemark.frontmatter.title}</h2>
                     <div
                         class="blog-post-content"

@@ -5,11 +5,11 @@
     width: 100%;
     height: $navbar-height;
     transition: top ease 0.5s;
-    background: $midnight-blue;
+    background: rgba($midnight-blue, 0.7);
     overflow: hidden;
-    padding: 0;
+    //padding: 0;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    border-bottom: 1px solid #f39c12;
+    //border-bottom: 1px solid #f39c12;
     z-index: 1000;
     
     &.hidden {
@@ -18,8 +18,10 @@
 
     a.navbar-brand {
         border-bottom: 2px solid $primary-color;
+        
         &:hover {
             background: none;
+            color: #fff;
         }
     }
 
