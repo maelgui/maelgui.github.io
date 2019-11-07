@@ -30,10 +30,12 @@
         position: relative;
         margin: auto;
         left: 0;
-        transition: left ease 0.75s;
+        opacity: 1;
+        transition: opacity ease-out 0.5s, left ease-out 0.75s;
 
         &.hide {
             left: calc(100% + 20px);
+            opacity: 0
         }
     }
 
