@@ -1,5 +1,7 @@
 import React from "react"
 import styles from "./footer.module.scss";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faLinkedinIn, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 const Footer = () => {
     return (
@@ -9,8 +11,8 @@ const Footer = () => {
                     Copyright 2019 Mael Guillossou
                 </div>
                 <div>
-                    <a href="https://github.com/maelgui"><span className="fab fa-github"></span> Github</a>
-                    <a href="https://www.linkedin.com/in/mael-guillossou/"><span className="fab fa-linkedin-in"></span> Linkedin</a>
+                    <a href="https://github.com/maelgui"><FontAwesomeIcon icon={faGithub} /> Github</a>
+                    <a href="https://www.linkedin.com/in/mael-guillossou/"><FontAwesomeIcon icon={faLinkedinIn} /> Linkedin</a>
                 </div>
             </div>
         </footer>

@@ -1,16 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand);
 @import url('https://fonts.googleapis.com/css?family=Antic+Slab&display=swap');
 
-$fa-font-path: "~@fortawesome/fontawesome-free/webfonts/";
-
 @import "~bootstrap/scss/bootstrap.scss";
-@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "~@fortawesome/fontawesome-free/scss/solid.scss";
-@import "~@fortawesome/fontawesome-free/scss/brands.scss";
-//@import "_parallax.sass";
-//@import "_navbar.scss";
-//@import "_button.scss";
-//@import "_home.scss";
 
 html {
     scroll-behavior: smooth;

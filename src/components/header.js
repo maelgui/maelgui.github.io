@@ -1,6 +1,8 @@
 import React from "react"
 import styles from "./header.module.scss";
-import { func } from "prop-types";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 class Header extends React.Component {
     constructor(props) {
@@ -24,8 +26,8 @@ class Header extends React.Component {
                     </div>
                     <div id="homeButtons">
                         <div className={styles.social}>
-                            <a href="https://github.com/maelgui" className="btn btn-icon"><span className="fab fa-github"></span></a>
-                            <a href="https://www.linkedin.com/in/mael-guillossou/" className="btn btn-icon"><span className="fab fa-linkedin-in"></span></a>
+                            <a href="https://github.com/maelgui" className="btn btn-icon"><FontAwesomeIcon icon={faGithub} /></a>
+                            <a href="https://www.linkedin.com/in/mael-guillossou/" className="btn btn-icon"><FontAwesomeIcon icon={faLinkedinIn} /></a>
                         </div>
                         <div className={styles.action}>
                             <a href="#portfolio" onClick={this.checkProjects} className="btn">Check My Work</a>
@@ -37,7 +39,9 @@ class Header extends React.Component {
                     <div id={styles.stars2}></div>
                     <div id={styles.stars3}></div>        
                 </div>
-                <a href="#about" onClick={this.next} className={`${styles.next} ${this.state.hide ? styles.hide : ""}`}><i className="fa fa-chevron-down"></i></a>
+                <a href="#about" onClick={this.next} className={`${styles.next} ${this.state.hide ? styles.hide : ""}`}>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                </a>
             </header>
         );
     }
