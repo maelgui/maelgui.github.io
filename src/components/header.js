@@ -14,34 +14,38 @@ class Header extends React.Component {
         };
 
         this.enableScrollEvent = true;
+        this.lastScrollY = 0;
+
     }
 
     render() {
         return (
             <header className={`${styles.home} dark`} id="home">
-                <div className={`${styles.content} ${this.state.hide ? styles.hide : ""}`}>
-                    <div id="homeTitle" className={styles.head}>
-                        <h1>Hello, I'm <span className={styles.name}>Mael Guillossou</span>.</h1>
-                        <h2>I'm a third year engineer student at <a href="https://ec-nantes.fr">Centrale Nantes</a></h2>
-                    </div>
-                    <div id="homeButtons">
-                        <div className={styles.social}>
-                            <a href="https://github.com/maelgui" className="btn btn-icon"><FontAwesomeIcon icon={faGithub} /></a>
-                            <a href="https://www.linkedin.com/in/mael-guillossou/" className="btn btn-icon"><FontAwesomeIcon icon={faLinkedinIn} /></a>
+                <div className={styles.homeFixed}>
+                    <div className={`${styles.content} ${this.state.hide ? styles.hide : ""}`}>
+                        <div id="homeTitle" className={styles.head}>
+                            <h1>Hello, I'm <span className={styles.name}>Mael Guillossou</span>.</h1>
+                            <h2>I'm a third year engineer student at <a href="https://ec-nantes.fr">Centrale Nantes</a></h2>
                         </div>
-                        <div className={styles.action}>
-                            <a href="#portfolio" onClick={this.checkProjects} className="btn">Check My Work</a>
+                        <div id="homeButtons">
+                            <div className={styles.social}>
+                                <a href="https://github.com/maelgui" className="btn btn-icon"><FontAwesomeIcon icon={faGithub} /></a>
+                                <a href="https://www.linkedin.com/in/mael-guillossou/" className="btn btn-icon"><FontAwesomeIcon icon={faLinkedinIn} /></a>
+                            </div>
+                            <div className={styles.action}>
+                                <a href="#portfolio" onClick={this.checkProjects} className="btn">Check My Work</a>
+                            </div>
                         </div>
                     </div>
+                    <div className={styles.background}>
+                        <div id={styles.stars}></div>
+                        <div id={styles.stars2}></div>
+                        <div id={styles.stars3}></div>        
+                    </div>
+                    <a href="#about" onClick={this.next} className={`${styles.next} ${this.state.hide ? styles.hide : ""}`}>
+                        <FontAwesomeIcon icon={faChevronDown} />
+                    </a>
                 </div>
-                <div className={styles.background}>
-                    <div id={styles.stars}></div>
-                    <div id={styles.stars2}></div>
-                    <div id={styles.stars3}></div>        
-                </div>
-                <a href="#about" onClick={this.next} className={`${styles.next} ${this.state.hide ? styles.hide : ""}`}>
-                    <FontAwesomeIcon icon={faChevronDown} />
-                </a>
             </header>
         );
     }
@@ -76,9 +80,16 @@ class Header extends React.Component {
 
         if (this.enableScrollEvent) {
             if (window.scrollY > 0 && window.scrollY < document.querySelector("#about").offsetTop) {
-                document.getElementById("about").scrollIntoView();
+                if (this.lastScrollY < window.scrollY) {
+                    document.getElementById("about").scrollIntoView();
+                }
+                else {
+                    document.getElementById("home").scrollIntoView();
+                }
             }
         }
+
+        this.lastScrollY = window.scrollY;
     }
 }
 

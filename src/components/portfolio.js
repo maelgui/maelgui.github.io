@@ -64,7 +64,7 @@ const Project = (props) => {
         <Slide up>
             <div>
                 <div className={`row ${styles.project} ${props.left ? 'flex-row-reverse' : ''}`}>
-                    <div className="col-md-8" >
+                    <div className="col-lg-8" >
                         <div className={styles.thumbContainer}>
                             <div className={styles.thumbnail}>
                                 {props.data.frontmatter.featuredImage ? (
@@ -73,7 +73,7 @@ const Project = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className={`col-md-4 ${styles.desc}`}>
+                    <div className={`col-lg-4 ${styles.desc}`}>
                         <h4>{props.data.frontmatter.title}</h4>
                         <div className={styles.tags}>
                             {props.data.frontmatter.tags.map((value, index) => {

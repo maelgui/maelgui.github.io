@@ -16,7 +16,6 @@ class Navbar extends React.Component {
             {label: "Portfolio", ref: "portfolio"},
             {label: "Contact", href: "#contact"},
         ];
-
     }
 
     render() {
@@ -24,7 +23,13 @@ class Navbar extends React.Component {
             <nav className={`navbar navbar-expand-lg fixed-top ${this.state.hidden ? "hidden" : ""} dark navbar-dark`}>
                 <div className="container">
                     <a className="navbar-brand" href="#home">Mael Guillossou</a>
-                    <button onClick={this.collapseNavbar} onBlur={this.collapseNavbar} id="menuCollapseButton" className={`navbar-toggler ${this.state.collapsed ? "collapsed" : ""}`} type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button 
+                        onClick={ () => { this.setState({collapsed: !this.state.collapsed}) }} 
+                        onBlur={ () => { this.setState({collapsed: true}) }} 
+                        id="menuCollapseButton" 
+                        className={`navbar-toggler ${this.state.collapsed ? "collapsed" : ""}`} 
+                        type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+                    >
                         <span></span>
                         <span></span>
                         <span></span>

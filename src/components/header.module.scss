@@ -1,19 +1,22 @@
 @import '../styles/_parallax';
 
 .home {
-    text-align: left;
-    display: flex;
-    min-height: 100vh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20px;
-    //border-bottom: 5px solid $primary-color;
-    overflow: hidden;
-    background: radial-gradient(ellipse at bottom, $midnight-blue 0%, #090A0F 100%);
-    color: #fff;
-    font-family: 'Quicksand', 'monospace';
+    height: 100vh;
+
+    .homeFixed {
+        text-align: left;
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 20px;
+        overflow: hidden;
+        background: radial-gradient(ellipse at bottom, $midnight-blue 0%, #090A0F 100%);
+        color: #fff;
+        font-family: 'Quicksand', 'monospace';    
+    }
 
     h1 {
         font-size: 40px;
