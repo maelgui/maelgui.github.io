@@ -1,8 +1,11 @@
 @import "../styles/placeholder";
 
 .portfolio {
-    border-bottom: 5px solid $secondary-color;
-    background-color: $midnight-blue;
+    position: relative;
+    //border-bottom: 5px solid $primary-color;
+    background: $midnight-blue;
+    background: radial-gradient(circle at top, darken($midnight-blue, 5%) 0%, $midnight-blue 85%, rgba(0,31,53,0) 100%);
+    //background: linear-gradient(180deg, $midnight-blue 0%, $midnight-blue-clear 95%, rgba(0,31,53,0) 100%); 
     display: block;
 
     .parallax {
@@ -10,6 +13,7 @@
         background-image: url("../images/kaur-kristjan-CpPF4W5PB1c-unsplash.jpg");
 
         /* Set a specific height */
+        padding-top: $navbar-height;
         height: 500px;
 
         /* Create the parallax scrolling effect */
@@ -23,15 +27,17 @@
         h2 {
             font-size: 2.7rem;
             padding: 15px 25px;
-            background-color: #fff;
+            background-color: darken($midnight-blue, 5%);
             display: inline-block;
             margin-bottom: 20px;
+            color: #fff;
         }
 
         p {
             font-size: 1.1rem;
             padding: 5px 15px;
-            background-color: #fff;
+            background-color: darken($midnight-blue, 5%);
+            color: #fff;
             display: inline-block;
         }
 
@@ -49,12 +55,28 @@
             color: #fff;
 
             h4, .descHtml {
-                margin-bottom: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .tag{
+                display: inline-block;
+                padding: 1px 5px;
+                margin-right: 5px;
+                font-size: 0.75rem;
+                border: 1px solid $primary-color;
+                border-radius: 2px;
+                font-family: Quicksand;
+            }
+
+            .tags {
+                margin-bottom: 0.75rem;
             }
         }
 
         .thumbContainer {
             overflow: hidden;
+            box-shadow: 5px 5px 15px 5px darken( $midnight-blue, 7.5% );
+            margin-bottom: 40px;
         }
 
         .thumbnail {

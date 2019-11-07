@@ -36,8 +36,8 @@ const Portfolio = () => {
 
     return (
         <Section id="portfolio" class={styles.portfolio} head dark>
-            <div class={styles.parallax}>
-                <div class="container">
+            <div className={styles.parallax}>
+                <div className="container">
                     <div>
                         <div>
                             <h2>Portfolio</h2>
@@ -48,10 +48,10 @@ const Portfolio = () => {
                     </div>
                 </div>
             </div>
-            <div class="container">
+            <div className="container">
                 <div>
                     {data.projects.edges.map((value, index) => {
-                        return <Project data={value.node} left={index%2} />
+                        return <Project data={value.node} left={index%2} key={value.node.id} />
                     })}
                 </div>
             </div>
@@ -63,20 +63,25 @@ const Project = (props) => {
     return (
         <Slide up>
             <div>
-                <div class={`row ${styles.project} ${props.left ? 'flex-row-reverse' : ''}`}>
-                    <div class="col-md-8" >
-                        <div class={styles.thumbContainer}>
-                            <div class={styles.thumbnail}>
+                <div className={`row ${styles.project} ${props.left ? 'flex-row-reverse' : ''}`}>
+                    <div className="col-md-8" >
+                        <div className={styles.thumbContainer}>
+                            <div className={styles.thumbnail}>
                                 {props.data.frontmatter.featuredImage ? (
                                     <Img sizes={props.data.frontmatter.featuredImage.childImageSharp.sizes}/>
                                 ) : ""}
                             </div>
                         </div>
                     </div>
-                    <div class={`col-md-4 ${styles.desc}`}>
+                    <div className={`col-md-4 ${styles.desc}`}>
                         <h4>{props.data.frontmatter.title}</h4>
-                        <div dangerouslySetInnerHTML={{ __html: props.data.html }} class={styles.descHtml}></div>
-                        <Link to="/project" class={`btn ${styles.more}`} >Read More </Link>
+                        <div className={styles.tags}>
+                            {props.data.frontmatter.tags.map((value, index) => {
+                                return <span className={styles.tag} key={index}>{value}</span>
+                            })}
+                        </div>
+                        <div dangerouslySetInnerHTML={{ __html: props.data.html }} className={styles.descHtml}></div>
+                        <Link to="/project" className={`btn ${styles.more}`} >Read More </Link>
                     </div>                    
                 </div>
             </div>

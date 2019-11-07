@@ -1,5 +1,5 @@
 .about {
-    //border-bottom: 5px solid $primary-color;
+    position: relative;
 
     .face {
         border-radius: 50%;
@@ -8,9 +8,28 @@
         max-width: 250px;
         margin: 20px auto 40px;
 
+        @media (max-width: 767.98px) { 
+            max-width: 150px;
+        }
+
         .canvas {
             border-radius: 50%;
             overflow: hidden;
+        }
+    }
+
+
+
+    .absoluteLeft {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        svg {
+            height: 100%;
         }
     }
 

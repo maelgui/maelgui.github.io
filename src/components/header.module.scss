@@ -4,9 +4,12 @@
     text-align: left;
     display: flex;
     min-height: 100vh;
-    position: relative;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     padding: 20px;
-    border-bottom: 5px solid $primary-color;
+    //border-bottom: 5px solid $primary-color;
     overflow: hidden;
     background: radial-gradient(ellipse at bottom, $midnight-blue 0%, #090A0F 100%);
     color: #fff;
@@ -17,6 +20,17 @@
         margin: 50px 0 0 0;
         .name {
             color: $primary-color;
+        }
+    }
+
+    .content {
+        position: relative;
+        margin: auto;
+        left: 0;
+        transition: left ease 0.75s;
+
+        &.hide {
+            left: calc(100% + 20px);
         }
     }
 
@@ -79,6 +93,7 @@
 
     .head {
         margin-bottom: 60px;
+        position: relative;
     }
 
     .next {
@@ -92,6 +107,13 @@
         line-height: 50px;
         left: calc(50% - 25px);
         color: $primary-color;
+        background: none;
+        opacity: 1;
+        transition: opacity 0.5s ease 0.25s;
+
+        &.hide {
+            opacity: 0;
+        }
 
         &:after {
             content: "";
@@ -115,6 +137,14 @@
             border: 2px solid #fff;
             border-radius: 50%;
         }
+
+        &:hover {
+            background: #fff;
+        }
+
+        &:focus {
+            outline: none;
+        }
     }
 
     .social {
@@ -125,5 +155,5 @@
         .btn {
             margin-left: 0;
         }
-    }   
+    }
 }

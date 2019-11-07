@@ -1,7 +1,7 @@
 ---
 title: E-Presence
 year: 2019
-tags: ["ReactNative", "Android", "iOS", "JS", Gitlab CI"]
+tags: ["ReactNative", "Android", "iOS", "JS", "Gitlab CI"]
 featuredImage: ./epresence.png
 ---
 EPresence is a school project of mobile application. We had to create an app capable of managing attendance sheet, in order to avoid using paper, and automate attendance entry in shcool software.

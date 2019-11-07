@@ -31,11 +31,11 @@ const Studies = () => {
 
     return (
         <Section id="studies" class={styles.studies} dark>
-            <div class={`container ${styles.container}`}>
-                <h2><span class="fa fa-graduation-cap"></span> Ma Formation</h2>
-                <div class={styles.timeline}>
+            <div className={`container ${styles.container}`}>
+                <h2><span className="fa fa-graduation-cap"></span> Ma Formation</h2>
+                <div className={styles.timeline}>
                     {data.studies.edges.map((value, index) => {
-                        return <Study data={value.node} left={index%2}/>
+                        return <Study data={value.node} left={index%2} key={value.node.id}/>
                     })}
                 </div>
             </div>
@@ -48,24 +48,24 @@ const Study = (props) => {
             <Slide {...props.left ? {left:true} : {right:true}}>
                 <div>
                     <div 
-                        class={`${styles.item} ${props.left ? styles.left : styles.right}`} 
+                        className={`${styles.item} ${props.left ? styles.left : styles.right}`} 
                         data-size={props.data.frontmatter.end - props.data.frontmatter.start}
                         data-city={props.data.frontmatter.city}
                     >
                         <div 
-                            class={styles.title}
+                            className={styles.title}
                         >
-                            <span class={styles.years}>{props.data.frontmatter.start} - {props.data.frontmatter.end}</span>
-                            <span class={styles.school}>{props.data.frontmatter.school}</span>
+                            <span className={styles.years}>{props.data.frontmatter.start} - {props.data.frontmatter.end}</span>
+                            <span className={styles.school}>{props.data.frontmatter.school}</span>
                         </div>
-                        <div class={styles.desc}>
-                            <p class={styles.city}>{props.data.frontmatter.city}</p>
+                        <div className={styles.desc}>
+                            <p className={styles.city}>{props.data.frontmatter.city}</p>
                             <div
                                 dangerouslySetInnerHTML={{ __html: props.data.html }}
                             >
                             </div>
                             {props.data.frontmatter.more ? (
-                                <a href={props.data.frontmatter.more}>Learn More <span class="fa fa-angle-right"></span></a>
+                                <a href={props.data.frontmatter.more}>Learn More <span className="fa fa-angle-right"></span></a>
                             ) : ""}
                         </div>
                     </div>

@@ -7,7 +7,8 @@ class Navbar extends React.Component {
         super(props);
         this.state = {
             hidden: true,
-            active: ""
+            active: "",
+            menuOpened: false
         };
         this.links = [
             {label: "About", ref: "about"},
@@ -20,17 +21,19 @@ class Navbar extends React.Component {
 
     render() {
         return (
-            <nav class={`navbar navbar-expand-lg fixed-top ${this.state.hidden ? "hidden" : ""} dark`}>
-                <div class="container">
-                    <a class="navbar-brand" href="#home">Mael Guillossou</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+            <nav className={`navbar navbar-expand-lg fixed-top ${this.state.hidden ? "hidden" : ""} dark navbar-dark`}>
+                <div className="container">
+                    <a className="navbar-brand" href="#home">Mael Guillossou</a>
+                    <button id="menuCollapseButton" className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ml-auto">
-                            {this.links.map((object) => 
-                                <li class={`nav-item ${this.state.active === object.ref ? 'active' : ""}`}>
-                                    <a class="nav-link" href={object.href ? object.href : "#" + object.ref}>{object.label} <span class="sr-only">(current)</span></a>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav ml-auto">
+                            {this.links.map((object, index) => 
+                                <li className={`nav-item ${this.state.active === object.ref ? 'active' : ""}`} key={index}>
+                                    <a className="nav-link" href={object.href ? object.href : "#" + object.ref}>{object.label} <span className="sr-only">(current)</span></a>
                                 </li>
                             )}
                         </ul>
