@@ -102,14 +102,13 @@
         bottom: 30px;
         width: 50px;
         height: 50px;
-        border: 1px solid #fff;
         border-radius: 50%;
         line-height: 50px;
         left: calc(50% - 25px);
         color: $primary-color;
-        background: none;
+        background-color: rgba(255, 255, 255,0);
         opacity: 1;
-        transition: opacity 0.5s ease 0.25s;
+        transition: all 0.3s ease, opacity 0.5s ease 0.25s;
 
         &.hide {
             opacity: 0;
@@ -118,20 +117,20 @@
         &:after {
             content: "";
             position: absolute;
-            top: -1px;
-            left: -1px;
+            top: 0;
+            left: 0;
             width: 50px;
             height: 50px;
             border: 2px solid $primary-color;
             border-radius: 50%;
-            transition: 0.3s ease all;
+            transition: all 0.3s ease;
         }
 
         &:hover:after {
             content: "";
             position: absolute;
-            top: -11px;
-            left: -11px;
+            top: -10px;
+            left: -10px;
             width: 70px;
             height: 70px;
             border: 2px solid #fff;
@@ -139,7 +138,7 @@
         }
 
         &:hover {
-            background: #fff;
+            background-color: rgba(255, 255, 255, 1);
         }
 
         &:focus {
