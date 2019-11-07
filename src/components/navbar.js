@@ -8,7 +8,7 @@ class Navbar extends React.Component {
         this.state = {
             hidden: true,
             active: "",
-            menuOpened: false
+            collapsed: true
         };
         this.links = [
             {label: "About", ref: "about"},
@@ -24,12 +24,12 @@ class Navbar extends React.Component {
             <nav className={`navbar navbar-expand-lg fixed-top ${this.state.hidden ? "hidden" : ""} dark navbar-dark`}>
                 <div className="container">
                     <a className="navbar-brand" href="#home">Mael Guillossou</a>
-                    <button id="menuCollapseButton" className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button onClick={this.collapseNavbar} onBlur={this.collapseNavbar} id="menuCollapseButton" className={`navbar-toggler ${this.state.collapsed ? "collapsed" : ""}`} type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
+                    <div className={`${this.state.collapsed ? "": "show"} collapse navbar-collapse`} id="navbarNav">
                         <ul className="navbar-nav ml-auto">
                             {this.links.map((object, index) => 
                                 <li className={`nav-item ${this.state.active === object.ref ? 'active' : ""}`} key={index}>
@@ -41,6 +41,10 @@ class Navbar extends React.Component {
                 </div>
             </nav>
         );
+    }
+
+    collapseNavbar = () => {
+        this.setState({collapsed: !this.state.collapsed});
     }
 
     componentDidMount() {
