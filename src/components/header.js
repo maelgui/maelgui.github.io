@@ -2,7 +2,7 @@ import React from "react"
 import styles from "./header.module.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faRocket } from '@fortawesome/free-solid-svg-icons'
 
 class Header extends React.Component {
     constructor(props) {
@@ -10,7 +10,9 @@ class Header extends React.Component {
 
         this.state = {
             offset: 0,
-            offsetButtons: 0
+            xRocket: 30,
+            yRocket: 30,
+            takeOff: false
         };
 
         this.enableScrollEvent = true;
@@ -21,6 +23,9 @@ class Header extends React.Component {
     render() {
         return (
             <header className={`${styles.home} dark`} id="home">
+                <div className={`${styles.path} ${this.state.takeOff ? styles.takeOff : ""}`} style={{left: this.state.xRocket, bottom: this.state.yRocket}}>
+                    <FontAwesomeIcon icon={faRocket} />
+                </div>
                 <div className={styles.homeFixed}>
                     <div className={`${styles.content} ${this.state.hide ? styles.hide : ""}`}>
                         <div id="homeTitle" className={styles.head}>
@@ -56,9 +61,10 @@ class Header extends React.Component {
 
     next = (e) => {
         e.preventDefault();
-        this.setState({hide: true});
-        setTimeout(function() {
+        this.setState({hide: true, takeOff: true});
+        setTimeout(() => {
             document.getElementById("about").scrollIntoView();
+            this.setState({takeOff: false});
         }, 500);
     }
 
@@ -74,20 +80,21 @@ class Header extends React.Component {
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
     }
+
+    xRocketCurve2 = (x) => {
+        return (window.innerWidth / 3) * ((x - window.innerHeight) * x) / ((window.innerHeight/2 - window.innerHeight) * window.innerHeight / 2) + 30
+    }
+
+    rocketCurve = (x) => {
+        return x + 30
+    }
     
     handleScroll = (event) => {
-        this.setState({hide: window.scrollY > 0});
-
-        if (this.enableScrollEvent) {
-            if (window.scrollY > 0 && window.scrollY < document.querySelector("#about").offsetTop) {
-                if (this.lastScrollY < window.scrollY) {
-                    document.getElementById("about").scrollIntoView();
-                }
-                else {
-                    document.getElementById("home").scrollIntoView();
-                }
-            }
-        }
+        this.setState({
+            hide: window.scrollY > 0,
+            xRocket: this.rocketCurve(window.scrollY * window.innerWidth/window.innerHeight),
+            yRocket: this.rocketCurve(window.scrollY)
+        });
 
         this.lastScrollY = window.scrollY;
     }
