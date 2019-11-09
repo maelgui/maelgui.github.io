@@ -5,5 +5,5 @@ end: 2021
 city: Nantes, FR
 more: https://www.ec-nantes.fr/
 ---
-Formation ingénieur généraliste <br/>
-Option informatique
+Engineering School<br>
+Centrale Nantes, a highly selective french school of engineering, conferring a diploma equivalent to a master’s degree. Spécialization in computer science.
