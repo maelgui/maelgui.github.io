@@ -47,9 +47,8 @@
     }
 
     
-
-    .project {
-        margin-bottom: 120px;
+    .projectWrapper {
+        padding-top: 2 * $navbar-height;
 
         .desc {
             color: #fff;
@@ -85,7 +84,7 @@
             transition: ease 0.5s;
         }
 
-        &:hover {
+        .project:hover {
             .thumbnail {
                 filter: grayscale(0%);
                 transform: scale(1.1);

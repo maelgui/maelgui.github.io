@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby"
 import './navbar.scss';
 
 class Navbar extends React.Component {
@@ -20,9 +21,9 @@ class Navbar extends React.Component {
 
     render() {
         return (
-            <nav className={`navbar navbar-expand-lg fixed-top ${this.state.hidden ? "hidden" : ""} dark navbar-dark`}>
+            <nav className={`navbar navbar-expand-lg fixed-top ${(this.state.hidden && this.props.autohide) ? "hidden" : ""} dark navbar-dark`}>
                 <div className="container">
-                    <a className="navbar-brand" href="#home">Mael Guillossou</a>
+                    <Link to="/#" className="navbar-brand">Mael Guillossou</Link>
                     <button 
                         onClick={ () => { this.setState({collapsed: !this.state.collapsed}) }} 
                         onBlur={ () => { this.setState({collapsed: true}) }} 
@@ -38,7 +39,7 @@ class Navbar extends React.Component {
                         <ul className="navbar-nav ml-auto">
                             {this.links.map((object, index) => 
                                 <li className={`nav-item ${this.state.active === object.ref ? 'active' : ""}`} key={index}>
-                                    <a className="nav-link" href={object.href ? object.href : "#" + object.ref}>{object.label} <span className="sr-only">(current)</span></a>
+                                    <Link className="nav-link" to={object.href ? object.href : "/#" + object.ref}>{object.label}</Link>
                                 </li>
                             )}
                         </ul>

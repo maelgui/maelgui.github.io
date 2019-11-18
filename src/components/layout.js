@@ -28,9 +28,11 @@ class Layout extends React.Component {
         `}
         render={data => (
           <>
-            <Navbar siteTitle={data.site.siteMetadata.title} />
+            <Navbar autohide={this.props.autohide} siteTitle={data.site.siteMetadata.title} />
             <main>{this.props.children}</main>
-            <Footer />
+            {!this.props.noFooter &&
+              <Footer />
+            }
           </>
         )}
       />
@@ -40,6 +42,10 @@ class Layout extends React.Component {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+}
+
+Navbar.defaultProps = {
+  autohide: false,
 }
 
 export default Layout

@@ -3,14 +3,14 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import About from "../components/about";
-import Header from "../components/header";
+import Home from "../components/home";
 import Studies from "../components/studies";
 import Portfolio from "../components/portfolio";
 
 const IndexPage = () => (
-  <Layout>
+  <Layout autohide={true}>
     <SEO title="Home" />
-    <Header />
+    <Home />
     <About />
     <Studies />
     <Portfolio />

@@ -1,10 +1,10 @@
 import React from "react"
-import styles from "./header.module.scss";
+import styles from "./home.module.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
 import { faChevronDown, faRocket } from '@fortawesome/free-solid-svg-icons'
 
-class Header extends React.Component {
+class Home extends React.Component {
     constructor(props) {
         super(props);
 
@@ -100,4 +100,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header
+export default Home

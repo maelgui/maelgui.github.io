@@ -8,13 +8,16 @@ import Img from "gatsby-image"
 const Portfolio = () => {
         const data = useStaticQuery(graphql`query {
             projects: allMarkdownRemark(
-                filter: {fileAbsolutePath: {regex: "/(projects)/.*.md$/"}},
+                filter: {fileAbsolutePath: {regex: "/(projects)/.*/introduction.md/"}},
                 sort: {fields: frontmatter___year, order: DESC}
             ) {
                 edges {
                     node {
                         html
                         id
+                        fields {
+                            slug
+                        }
                         frontmatter {
                             title
                             year
@@ -63,26 +66,28 @@ const Project = (props) => {
     return (
         <Slide up>
             <div>
-                <div className={`row ${styles.project} ${props.left ? 'flex-row-reverse' : ''}`}>
-                    <div className="col-lg-8" >
-                        <div className={styles.thumbContainer}>
-                            <div className={styles.thumbnail}>
-                                {props.data.frontmatter.featuredImage ? (
-                                    <Img sizes={props.data.frontmatter.featuredImage.childImageSharp.sizes}/>
-                                ) : ""}
+                <div id={props.data.id} className={styles.projectWrapper}>
+                    <div className={`row ${styles.project} ${props.left ? 'flex-row-reverse' : ''}`}>
+                        <div className="col-lg-8" >
+                            <div className={styles.thumbContainer}>
+                                <div className={styles.thumbnail}>
+                                    {props.data.frontmatter.featuredImage ? (
+                                        <Img sizes={props.data.frontmatter.featuredImage.childImageSharp.sizes}/>
+                                    ) : ""}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className={`col-lg-4 ${styles.desc}`}>
-                        <h4>{props.data.frontmatter.title}</h4>
-                        <div className={styles.tags}>
-                            {props.data.frontmatter.tags.map((value, index) => {
-                                return <span className={styles.tag} key={index}>{value}</span>
-                            })}
-                        </div>
-                        <div dangerouslySetInnerHTML={{ __html: props.data.html }} className={styles.descHtml}></div>
-                        <Link to="/project" className={`btn ${styles.more}`} >Read More </Link>
-                    </div>                    
+                        <div className={`col-lg-4 ${styles.desc}`}>
+                            <h4>{props.data.frontmatter.title}</h4>
+                            <div className={styles.tags}>
+                                {props.data.frontmatter.tags.map((value, index) => {
+                                    return <span className={styles.tag} key={index}>{value}</span>
+                                })}
+                            </div>
+                            <div dangerouslySetInnerHTML={{ __html: props.data.html }} className={styles.descHtml}></div>
+                            <Link to={ props.data.fields.slug } className={`btn ${styles.more}`} >Read More </Link>
+                        </div>      
+                    </div>              
                 </div>
             </div>
         </Slide>
