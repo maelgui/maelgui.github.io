@@ -32,7 +32,9 @@ const PageHeader = ({ data }) => (
                         {data.markdownRemark.frontmatter.more ? (
                             <a href={data.markdownRemark.frontmatter.more} className={`btn ${styles.btn}`}><FontAwesomeIcon icon={faGlobeEurope} /> Access project</a>
                         ) : <span></span>}
-                        <Link to="" className={`btn ${styles.btn}`}>Read next part <FontAwesomeIcon icon={faChevronRight} /></Link>
+                        {data.markdownRemark.frontmatter.next ? (
+                            <Link to={data.markdownRemark.frontmatter.next} className={`btn ${styles.btn}`}>Read next part <FontAwesomeIcon icon={faChevronRight} /></Link>
+                        ) : <span></span>}
                     </div>
                 </div>
             </div>
@@ -49,6 +51,7 @@ export const query = graphql`
                 title
                 tags
                 more
+                next
                 featuredImage {
                     childImageSharp {
                         fluid(maxWidth: 2000) {
