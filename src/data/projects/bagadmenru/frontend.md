@@ -6,5 +6,4 @@ more: https://bagadmenru.bzh/
 featuredImage: ./bagadmenru.jpg
 next: ./frontend
 ---
-Site internet du Bagad Men Ru de Montfort.
-Site vitrine, et portail membre
+Frontend
