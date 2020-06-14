@@ -39,5 +39,5 @@ jobs:
         ftp-username: ${{ secrets.SFTP_USERNAME }}
         ftp-password: ${{ secrets.SFTP_PASSWORD }}
         local-dir: "public/"
-        known-hosts: ${{ secrets.KNOWN_HOSTS }}
+        git-ftp-args: --remote-root www
 
