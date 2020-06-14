@@ -32,12 +32,12 @@ jobs:
       uses: actions/download-artifact@v1
       with:
         name: public
-    - name: Upload ftp
-      uses: sebastianpopp/ftp-action@releases/v1
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
-        host: ${{ secrets.FTP_SERVER }}
-        user: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        localDir: "public"
-        remoteDir: "www"
+        ftp-server: ${{ secrets.SFTP_SERVER }}
+        ftp-username: ${{ secrets.SFTP_USERNAME }}
+        ftp-password: ${{ secrets.SFTP_PASSWORD }}
+        local-dir: "public"
+        known-hosts: ${{ secrets.KNOWN_HOSTS }}
 
